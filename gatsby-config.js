@@ -1,14 +1,30 @@
 module.exports = {
   siteMetadata: {
-    title: `Villains`,
-    siteUrl: `https://www.yourdomain.tld`
+    title: `Villains`
   },
-  plugins: ["gatsby-plugin-sass", "gatsby-plugin-react-helmet", "gatsby-plugin-mdx", {
-    resolve: 'gatsby-source-filesystem',
+  plugins: [
+    "gatsby-plugin-sass", 
+    "gatsby-plugin-react-helmet", 
+    "gatsby-plugin-mdx",
+  {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `gatsby-starter-villains`,
+        short_name: `villains`,
+        start_url: `/`,
+        background_color: `#f7f0eb`,
+        theme_color: `#a2466c`,
+        display: `standalone`,
+        icon: 'src/images/icon.png'
+      },
+  },
+  `gatsby-plugin-offline`,
+  {
+    resolve: `gatsby-source-drupal`,
     options: {
-      "name": "pages",
-      "path": "./src/pages/"
+      baseUrl: `https://dev-heres-negan.pantheonsite.io/`,
+      apiBase: `jsonapi`,
     },
-    __key: "pages"
-  }]
+  }
+]
 };
