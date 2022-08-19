@@ -20,10 +20,30 @@ module.exports = {
   },
   `gatsby-plugin-offline`,
   {
+    resolve: `gatsby-source-drupal-menu-links`,
+    options: {
+      baseUrl: `https://dev-ahsokatano.pantheonsite.io`,
+      menus: ["main"],
+    },
+  },
+  {
     resolve: `gatsby-source-drupal`,
     options: {
-      baseUrl: `https://dev-heres-negan.pantheonsite.io/`,
+      baseUrl: `https://dev-ahsokatano.pantheonsite.io/`,
       apiBase: `jsonapi`,
+    },
+  },
+  {
+    resolve: `gatsby-plugin-alias-imports`,
+    options: {
+      alias: {
+        "@src": "src",
+        "@components": "src/components",
+        "@images": "src/images",
+        "@styles": "src/styles",
+        "@utils": "src/utils",
+      },
+      extensions: ["js, svg, png, jpeg, jpg, gif"],
     },
   }
 ]
