@@ -1,6 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Villains`
+    title: `Ahsoka Tano site`,
+    description: `Practice POC for drupal headless cms`,
+    author: `Alannah Holder`,
   },
   plugins: [
     "gatsby-plugin-sass", 
@@ -22,14 +24,14 @@ module.exports = {
   {
     resolve: `gatsby-source-drupal-menu-links`,
     options: {
-      baseUrl: `https://dev-ahsokatano.pantheonsite.io`,
+      baseUrl: `http://localhost/ahsokatano/web`,
       menus: ["main"],
     },
   },
   {
     resolve: `gatsby-source-drupal`,
     options: {
-      baseUrl: `https://dev-ahsokatano.pantheonsite.io/`,
+      baseUrl: `http://localhost/ahsokatano/web`,
       apiBase: `jsonapi`,
     },
   },
