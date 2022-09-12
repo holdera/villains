@@ -3,20 +3,27 @@ import { StaticQuery, graphql } from "gatsby";
 import Header from "./Header";
 import Footer from "./Footer";
 import { Helmet } from "react-helmet";
-import '../styles/main.scss';
 
 const Layout = ({ children }) => {
     return (
         <StaticQuery
         query={graphql`
-            query MyQuery {
+            query {
                 site(siteMetadata: {}) {
                 siteMetadata {
                     title
                     description
                 }
                 }
+                allNodePage {
+                    edges {
+                        node {
+                            title
+                        }
+                    }
+                }
             }
+            
         `}
             render={data => (
                 <>
@@ -26,9 +33,7 @@ const Layout = ({ children }) => {
                 </Helmet>
                 <Header />
                     <main id="main" className="main-content">
-                        <div className="container">
-                            {children}
-                        </div>
+                        {children}
                     </main>
                 <Footer />
             </>

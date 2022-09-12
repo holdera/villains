@@ -33,6 +33,8 @@ module.exports = {
     options: {
       baseUrl: `http://localhost/ahsokatano/web`,
       apiBase: `jsonapi`,
+      placeholderStyleName: `placeholder`,
+      fastBuilds: true,
     },
   },
   {

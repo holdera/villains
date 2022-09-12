@@ -1,12 +1,12 @@
 import React from "react";
 import { StaticQuery, graphql, Link } from "gatsby";
-
+import Container from "@components/Container";
 const Header = () => {
    return(
     <StaticQuery
     query={graphql`
         query {
-            allNodePage {
+            allNodePage(sort: {fields: path___pid}) {
                 edges {
                   node {
                     id
@@ -14,7 +14,6 @@ const Header = () => {
                     path {
                       alias
                       pid
-                      langcode
                     }
                   }
                 }
@@ -23,20 +22,21 @@ const Header = () => {
     `}
     render={(data) => (
         <header>
-            <div className="container">
-                <div className="logo">Ahsoka Tano</div>
-                <nav>
-                    {/* fix page paths */}
-                { data.allNodePage.edges.map((link)=> (
-                        <Link 
-                            key={link.node.id}
-                            to={link.node.path.alias}
-                        >{link.node.title}
-                        </Link>
-                    ))
-                }
-                </nav>
-            </div>
+            <Container>
+                <div className="flex justify-between items-center">
+                    <div className="prose prose-2xl">Ahsoka Tano</div>
+                    <nav className="flex justify-evenly w-full max-w-[900px]">
+                    { data.allNodePage.edges.map((link)=> (
+                            <Link
+                                key={link.node.id}
+                                to={link.node.path.alias}
+                            >{link.node.title}
+                            </Link>
+                        ))
+                    }
+                    </nav>
+                </div>
+            </Container>
         </header>
     )}
 />
