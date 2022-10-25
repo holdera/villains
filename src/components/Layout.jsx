@@ -19,18 +19,19 @@ const Layout = ({ children }) => {
                     }
                     nodes {
                         relationships {
-                          field_hero {
+                            field_hero {
                             field_enable_hero
                             field_hero_text {
-                              processed
-                              value
+                                processed
+                                value
                             }
-                          }
+                            }
                         }
                     }
                 }
                 allBlockContentCtaBlock {
                     nodes {
+                        id
                         field_cta_link {
                         title
                         uri
@@ -60,7 +61,7 @@ const Layout = ({ children }) => {
                 <Header />
                     <main id="main" className="main-content min-h-[750px] h-ful w-full mt-12">
                         {children}
-                        {/* <ParagraphTwoColumnText /> */}
+                        <ParagraphTwoColumnText data={data} />
                     </main>
                 <CtaBlock data={data} />
                 <Footer />

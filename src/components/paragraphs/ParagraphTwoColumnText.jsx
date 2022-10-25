@@ -1,19 +1,7 @@
 import React from 'react';
 import Container from "../Container";
-import { graphql } from "gatsby";
 
-// export const fragment = graphql`
-// fragment ParagraphTwoColumnText on paragraph__two-cols {
-//     id
-//     text: field_text_demo {
-//         format
-//         processed
-//         value
-//     }
-// }
-// `;
-
-const ParagraphTwoColumnText = ({data}) => {
+const ParagraphTwoColumnText = ({ data }) => {
 
     return (
         <section className='two-column'>
