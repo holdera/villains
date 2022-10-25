@@ -1,44 +1,53 @@
 import React from "react";
-import { StaticQuery, graphql, Link } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
+import Container from "@components/Container";
+import FooterTextBlock from "@components/blocks/FooterTextBlock";
 
 const Footer = () => {
+  const data = useStaticQuery(graphql`
+  query allFooterMenuItems {
+    menu: allMenuItems(filter: {menu_name: {eq: "footer"}}) {
+      nodes {
+        id
+        title
+        url
+        options {
+          attributes {
+            target
+          }
+        }
+      }
+    }
+    allBlockContentFooterContent {
+      nodes {
+        field_footer_text {
+          value
+        }
+      }
+    }
+  }
+  `)
+
     return (
-        <StaticQuery
-        query={graphql`
-            query {
-                allMenuLinkContentMenuLinkContent(
-                    sort: { fields: [weight], order: ASC },
-                    filter: {menu_name: {eq: "footer"}}
-                ) {
-                    edges {
-                        node {
-                            id
-                            title
-                            menu_name
-                            link {
-                                uri
-                            }
-                        }
+          <footer className="bg-[#111827] py-6 xl:py-8">
+            <Container>
+            <div className="m-auto footer__links flex justify-evenly w-full max-w-[900px]">
+              { data && data?.menu?.nodes?.map((link)=> (
+                            <a
+                              className="text-white"
+                              target={link?.options?.attributes?.target}
+                              key={link.id}
+                              href={link.url.replace('/ahsokatano/web', '')}
+                            >
+                              {link.title}
+                            </a>
+                        ))
                     }
-                }
-            }
-        `}
-            render={(data) => {
-                <footer>
-                    <div className="footer__links">
-                        {data.allMenuLinkContentMenuLinkContent.edges.map(
-                            (link) => (
-                                <Link
-                                    key={link.node.id}
-                                    to={link.node.link.uri}>
-                                    {link.node.title}
-                                </Link>
-                            )
-                        )}
-                    </div>
-                </footer>;
-            }}
-        />
+              </div>
+              <FooterTextBlock data={data} />
+            </Container>
+          </footer>
+            
     );
 };
 

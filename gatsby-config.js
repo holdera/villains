@@ -38,6 +38,13 @@ module.exports = {
     },
   },
   {
+    resolve: `gatsby-source-drupal-menu-links`,
+    options: {
+      baseUrl: `http://localhost/ahsokatano/web`,
+      menus: ["main", "footer"],
+    },
+  },
+  {
     resolve: `gatsby-plugin-alias-imports`,
     options: {
       alias: {

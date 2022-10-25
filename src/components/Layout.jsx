@@ -2,6 +2,8 @@ import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import Header from "./Header";
 import Footer from "./Footer";
+import CtaBlock from "@components/blocks/CtaBlock";
+import ParagraphTwoColumnText from "@components/paragraphs/ParagraphTwoColumnText"
 import { Helmet } from "react-helmet";
 
 const Layout = ({ children }) => {
@@ -9,16 +11,40 @@ const Layout = ({ children }) => {
         <StaticQuery
         query={graphql`
             query {
-                site(siteMetadata: {}) {
-                siteMetadata {
-                    title
-                    description
-                }
-                }
                 allNodePage {
                     edges {
                         node {
                             title
+                        }
+                    }
+                    nodes {
+                        relationships {
+                          field_hero {
+                            field_enable_hero
+                            field_hero_text {
+                              processed
+                              value
+                            }
+                          }
+                        }
+                    }
+                }
+                allBlockContentCtaBlock {
+                    nodes {
+                        field_cta_link {
+                        title
+                        uri
+                        }
+                        field_cta_heading
+                    }
+                }
+                allParagraphTwoColumnText {
+                    nodes {
+                        field_first_column {
+                            value
+                        }
+                        field_second_column {
+                            value
                         }
                     }
                 }
@@ -29,12 +55,14 @@ const Layout = ({ children }) => {
                 <>
                 <Helmet>
                     <meta charSet="utf-8" />
-                    <title>{data.site.siteMetadata.title}</title>
+                    <title></title>
                 </Helmet>
                 <Header />
-                    <main id="main" className="main-content">
+                    <main id="main" className="main-content min-h-[750px] h-ful w-full mt-12">
                         {children}
+                        {/* <ParagraphTwoColumnText /> */}
                     </main>
+                <CtaBlock data={data} />
                 <Footer />
             </>
             )}
