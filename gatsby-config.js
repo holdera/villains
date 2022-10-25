@@ -8,6 +8,13 @@ module.exports = {
     "gatsby-plugin-sass", 
     "gatsby-plugin-react-helmet", 
     "gatsby-plugin-mdx",
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
   {
       resolve: `gatsby-plugin-manifest`,
       options: {

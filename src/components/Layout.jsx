@@ -3,7 +3,7 @@ import { StaticQuery, graphql } from "gatsby";
 import Header from "./Header";
 import Footer from "./Footer";
 import CtaBlock from "@components/blocks/CtaBlock";
-import ParagraphTwoColumnText from "@components/paragraphs/ParagraphTwoColumnText"
+// import ParagraphTwoColumnText from "@components/paragraphs/ParagraphTwoColumnText"
 import { Helmet } from "react-helmet";
 
 const Layout = ({ children }) => {
@@ -61,7 +61,7 @@ const Layout = ({ children }) => {
                 <Header />
                     <main id="main" className="main-content min-h-[750px] h-ful w-full mt-12">
                         {children}
-                        <ParagraphTwoColumnText data={data} />
+                        {/* <ParagraphTwoColumnText data={data} /> */}
                     </main>
                 <CtaBlock data={data} />
                 <Footer />
