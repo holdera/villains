@@ -1,14 +1,14 @@
 import { graphql } from "gatsby"
 
-export const ParagraphImage = graphql`
-    fragment ParagraphReferenceLinks on paragraph__reference__links {
-        relationships {
-            field_reference_links {
-                field_ref_link {
-                    title
-                    uri
-                }
+export const ParagraphHero = graphql`
+    fragment ParagraphHero on paragraph__hero {
+        drupal_id
+        field_hero {
+            field_enable_hero
+            field_hero_text {
+                processed
+                value
             }
         }
     }
-`;
+`

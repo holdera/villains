@@ -13,7 +13,7 @@ exports.onCreateNode = async ({
   const { createNode, createNodeField } = actions
 
   const { createRedirect } = actions
-  createRedirect({ fromPath: '/', toPath: '/home', isPermanent: false })
+  //createRedirect({ fromPath: '/null/', toPath: '/', isPermanent: true })
   createRedirect({ fromPath: '/not_so-pretty_url', toPath: '/404', statusCode: 404 })
 
   const contentTypes = ['node__page', 'node__article'];

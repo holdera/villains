@@ -1,46 +1,40 @@
 import React from "react";
-import { StaticQuery, graphql, Link } from "gatsby";
+import { useStaticQuery, graphql, Link } from "gatsby";
 import Container from "@components/Container";
 const Header = () => {
-   return(
-    <StaticQuery
-    query={graphql`
-        query {
-            allNodePage(sort: {fields: path___pid}) {
-                edges {
-                  node {
-                    id
-                    title
-                    path {
-                      alias
-                      pid
-                    }
-                  }
-                }
-              }
+
+    const data = useStaticQuery(graphql`
+    query allMenuItems {
+      menu: allMenuItems(filter: {menu_name: {eq: "main"}}) {
+        nodes {
+          id
+          title
+          url
         }
-    `}
-    render={(data) => (
-        <header>
-            <Container>
-                <div className="flex justify-between items-center">
-                    <div className="prose prose-2xl">Ahsoka Tano</div>
-                    <nav className="flex justify-evenly w-full max-w-[900px]">
-                    { data.allNodePage.edges.map((link)=> (
-                            <Link
-                                key={link.node.id}
-                                to={link.node.path.alias}
-                            >{link.node.title}
-                            </Link>
-                        ))
-                    }
-                    </nav>
-                </div>
-            </Container>
-        </header>
-    )}
-/>
-)
+      }
+    }
+  `)
+
+  return (
+    <header className="py-5 border-b-2 border-[#233d61] border-solid">
+      <Container>
+          <div className="flex justify-between items-center">
+              <div className="prose prose-2xl font-bold text-[#233d61]">Ahsoka Tano</div>
+              <nav className="flex justify-evenly w-full max-w-[900px]">
+                  {data &&
+                      data?.menu?.nodes?.map((link) => (
+                          <Link
+                              key={link.id}
+                              to={link.url.replace("/ahsokatano/web", "")}
+                          >
+                              {link.title}
+                          </Link>
+                    ))}
+              </nav>
+          </div>
+      </Container>
+    </header>
+  );
 };
 
 export default Header;
