@@ -31,14 +31,14 @@ module.exports = {
   {
     resolve: `gatsby-source-drupal-menu-links`,
     options: {
-      baseUrl: `http://localhost/ahsokatano/web`,
+      baseUrl: `https://dev-tanoahsoka.pantheonsite.io`,
       menus: ["main"],
     },
   },
   {
     resolve: `gatsby-source-drupal`,
     options: {
-      baseUrl: `http://localhost/ahsokatano/web`,
+      baseUrl: `https://dev-tanoahsoka.pantheonsite.io`,
       apiBase: `jsonapi`,
       placeholderStyleName: `placeholder`,
       fastBuilds: true,
@@ -47,7 +47,7 @@ module.exports = {
   {
     resolve: `gatsby-source-drupal-menu-links`,
     options: {
-      baseUrl: `http://localhost/ahsokatano/web`,
+      baseUrl: `https://dev-tanoahsoka.pantheonsite.io`,
       menus: ["main", "footer"],
     },
   },

@@ -17,17 +17,6 @@ const Layout = ({ children }) => {
                             title
                         }
                     }
-                    nodes {
-                        relationships {
-                            field_hero {
-                            field_enable_hero
-                            field_hero_text {
-                                processed
-                                value
-                            }
-                            }
-                        }
-                    }
                 }
                 allBlockContentCtaBlock {
                     nodes {
@@ -37,16 +26,6 @@ const Layout = ({ children }) => {
                         uri
                         }
                         field_cta_heading
-                    }
-                }
-                allParagraphTwoColumnText {
-                    nodes {
-                        field_first_column {
-                            value
-                        }
-                        field_second_column {
-                            value
-                        }
                     }
                 }
             }

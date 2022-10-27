@@ -28,7 +28,7 @@ const inlineImagesFieldExtractor = (node) => {
   inlineImages.forEach(inlineImage => {
     inlineImage.attributes.forEach(async (inlineImageAttrs) => {
       if (inlineImageAttrs.name === 'src') {
-        const imageUrl = `http://localhost/ahsokatano/web${inlineImageAttrs.value}`;
+        const imageUrl = `https://dev-tanoahsoka.pantheonsite.io${inlineImageAttrs.value}`;
         nodeInlineImages.push({
           relativePath: inlineImageAttrs.value,
           remotePath: imageUrl
