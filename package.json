@@ -36,6 +36,7 @@
     "gatsby-source-drupal-menu-links": "^3.0.1",
     "gatsby-source-filesystem": "^4.17.0",
     "gatsby-transformer-sharp": "^4.9.0",
+    "html-react-parser": "^3.0.4",
     "postcss": "^8.4.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

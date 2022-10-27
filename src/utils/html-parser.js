@@ -1,5 +1,5 @@
 import React from "react";
-import ReactHtmlParser from "react-html-parser";
+import parse from "html-react-parser";
 import { GatsbyImage } from "gatsby-plugin-image";
 
 export const htmlParser = (content, inlineImages = []) => {
@@ -25,7 +25,7 @@ export const htmlParser = (content, inlineImages = []) => {
         },
     };
 
-    return ReactHtmlParser(content, options);
+    return parse(content, options);
 };
 
 export default htmlParser;

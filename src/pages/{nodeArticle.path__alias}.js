@@ -11,7 +11,6 @@ export default function Post({data: {node}}) {
             <Container addedClasses="mt-5">
                 <Title>{node.title}</Title>
                 <Body
-                //content={node?.body?.value}
                     content={node?.fields?.bodyProcessedWithInlineImages}
                 />
             </Container>
